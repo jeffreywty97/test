@@ -49,8 +49,12 @@ A RESTful API for managing products with authentication, built with Laravel and 
     ```bash
     php artisan migrate --seed
     ```
-
-6.  Start the development server:
+6.  Build Frontend Assets
+    ```bash
+    npm run build
+    ```
+    
+7.  Start the development server:
     ```bash
     php artisan serve
     ```
