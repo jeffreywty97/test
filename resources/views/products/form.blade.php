@@ -60,9 +60,9 @@
         </div>
 
         <div class="mb-3 form-check form-switch">
+            <input type="hidden" name="enabled" value="0">
             <label class="form-check-label" for="enabled">Enabled</label>
-            <input type="checkbox" class="form-check-input" id="enabled" name="enabled" value="1" {{ old('enabled', $product->enabled ?? false) ? 'checked' : '' }}>
-            <input type="hidden" name="enabled" value="0">            
+            <input type="checkbox" class="form-check-input" id="enabled" name="enabled" value="1" {{ old('enabled', $product->enabled ?? false) ? 'checked' : '' }}>                        
         </div>
 
         <input type="hidden" name="user_id" id="user_id" value="{{ auth()->id() }}"> 

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Category;
 use App\Http\Requests\ProductRequest;
+use App\Exports\ProductExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 use Illuminate\Http\Request;
 
