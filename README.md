@@ -20,7 +20,7 @@ A RESTful API for managing products with authentication, built with Laravel and 
 1. Clone the repository:
    ```bash
    git clone https://github.com/jeffreywty97/test.git
-   cd folder-path
+   cd test
    ```
 
 2. Install dependencies:
