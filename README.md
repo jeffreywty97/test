@@ -62,20 +62,20 @@ A RESTful API for managing products with authentication, built with Laravel and 
 ## API Endpoints
 
 ### Authentication
-| Endpoint        | Method | Description          |
-|-----------------|--------|----------------------|
-| api//register   | POST   | User registration    |
-| api//login      | POST   | User login           |
-| api//logout     | POST   | User logout          |
+| Endpoint       | Method | Description          |
+|----------------|--------|----------------------|
+| api/register   | POST   | User registration    |
+| api/login      | POST   | User login           |
+| api/logout     | POST   | User logout          |
 
 ### Products
-| Endpoint                  | Method | Description                |
-|---------------------------|--------|----------------------------|
-| api//product              | GET    | List all products          |
-| api//product              | POST   | Create new product         |
-| api//product/{id}         | GET    | Get product details        |
-| api//product/{id}         | DELETE | Delete product             |
-| api//product/bulk_delete  | POST   | Bulk delete products       |
+| Endpoint                 | Method | Description                |
+|--------------------------|--------|----------------------------|
+| api/product              | GET    | List all products          |
+| api/product              | POST   | Create new product         |
+| api/product/{id}         | GET    | Get product details        |
+| api/product/{id}         | DELETE | Delete product             |
+| api/product/bulk_delete  | POST   | Bulk delete products       |
 
 ## Example Requests
 
