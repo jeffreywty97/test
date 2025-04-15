@@ -20,7 +20,7 @@ A RESTful API for managing products with authentication, built with Laravel and 
 1. Clone the repository:
    ```bash
    git clone https://github.com/jeffreywty97/test.git
-   cd folder-path
+   cd test
    ```
 
 2. Install dependencies:
@@ -49,8 +49,12 @@ A RESTful API for managing products with authentication, built with Laravel and 
     ```bash
     php artisan migrate --seed
     ```
-
-6.  Start the development server:
+6.  Build Frontend Assets
+    ```bash
+    npm run build
+    ```
+    
+7.  Start the development server:
     ```bash
     php artisan serve
     ```
@@ -77,63 +81,66 @@ A RESTful API for managing products with authentication, built with Laravel and 
 
 **Register:** 
 **Please note down the returned token**
-\`\`\`bash
-curl -X POST http://localhost:8000/api/register \\
-  -H "Accept: application/json" \\
+```
+curl -X POST http://localhost:8000/api/register \
+  -H "Accept: application/json" \
   -d '{"name":"User","email":"user@example.com","password":"password","password_confirmation":"password"}'
-\`\`\`
+```
 
 **Login:** 
 **Please note down the returned token**
-\`\`\`bash
+```
 curl -X POST http://localhost:8000/api/login \\
   -H "Accept: application/json" \\
   -d '{"email":"user@example.com","password":"password"}'
-\`\`\`
+```
 
 **List all products, Filter by Category:Optional** 
-\`\`\`bash
+```
 curl -X GET http://localhost:8000/api/product \\
   -H "Accept: application/json" \\
   -d '{"category":"category"}'
-\`\`\`
+```
 
 **Create new product**
 **Use the token acquired from Register/Login to replace $TOKEN** 
-\`\`\`bash
+```
 curl -X POST http://localhost:8000/api/product \\
   -H "Accept: application/json" \\
   -H "Authorization: Bearer $TOKEN" \\
   -d '{"product_name":"product","description":"abc", "price": "5","stock": "5","category_id": "1"}'
-\`\`\`
+```
 
 **Get product details** 
-\`\`\`bash
+```
 curl -X GET http://localhost:8000/api/product/{product_id} \\
   -H "Accept: application/json" \\
-\`\`\`
+```
 
 **Delete product**
 **Use the token acquired from Register/Login to replace $TOKEN** 
-\`\`\`bash
+```
 curl -X DELETE http://localhost:8000/api/product/{product_id} \\
   -H "Accept: application/json" \\
   -H "Authorization: Bearer $TOKEN" \\
-\`\`\`
+```
 
 **Bulk Delete product**
 **Use the token acquired from Register/Login to replace $TOKEN** 
-\`\`\`bash
+```
 curl -X POST http://localhost:8000/api/product/bulk_delete \\
   -H "Accept: application/json" \\
   -H "Authorization: Bearer $TOKEN" \\
   -d '{"ids": [1,2,3,4,5]}'
-\`\`\`
+```
 
 ## Assumptions
 ## Design Choices
 Authentication: The API uses Sanctum for token-based authentication. The login endpoint provides a token, which must be included in the Authorization header for subsequent requests.
+
 Soft Deletion: Products are not permanently deleted; instead, the status column is used to mark products as deleted. This allows data to be retained for audit purposes.
+
 API Resources: The API responses are wrapped in API Resources (ProductResource) to ensure consistent formatting and easy modification in the future.
+
 Validation: Laravel Form Requests are used for input validation, ensuring that only valid data is saved to the database.
 
